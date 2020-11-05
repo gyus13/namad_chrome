@@ -1,0 +1,16 @@
+body{
+    background-color:white;
+}
+
+#title {
+    color:balck;
+}
+
+.form,
+ .greetings {
+    display:none;
+}
+
+.showing {
+    display:block;
+}
