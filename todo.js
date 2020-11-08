@@ -3,7 +3,21 @@ const toDoform = document.querySelector(".js-toDoForm"),
  toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
-const toDos = [];
+let toDos = [];
+
+
+// 6. deleteToDo
+function deleteToDo(event){
+    //console.log(event.target.parentNode); //target
+    const btn = event.target;
+    const li = btn.parentNode;
+    toDoList.removeChild(li); //removechild(child)
+    const cleanToDos = toDos.filter(function(toDo){
+        return toDo.id !== parseInt(li.id); //string인 숫자를 int로 바꿔준다.
+    });
+    toDos = cleanToDos;
+    saveToDos();
+}
 
 // 5. saveToDos
 function saveToDos() {
@@ -17,6 +31,7 @@ function paintTodo(text) {
     const span = document.createElement("span");
     const newId = toDos.length +1;
     delBtn.innerText = "XXX";
+    delBtn.addEventListener("click",deleteToDo); //todo 지우기
     span.innerText = text;
     li.appendChild(delBtn);
     li.appendChild(span); // li 에다 생성한 span 넣기
@@ -38,16 +53,15 @@ function handleSubmit(event){
     toDoInput.value = ""; // 입력한 뒤에 값 날리기
 }
 
-function something(toDo){
-    paintTodo(toDo.text);
-};
 
 // 2.loadTodos
 function loadTodos(){
     const loadedToDos = localStorage.getItem(TODOS_LS);
     if (loadedToDos !== null){
         const parsedToDos = JSON.parse(loadedToDos); // string을 object로 바꾼다.
-        parsedToDos.forEach(something);
+        parsedToDos.forEach(function(toDo){
+            paintTodo(toDo.text);
+        });
     }
 }
 
