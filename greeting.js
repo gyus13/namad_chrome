@@ -30,7 +30,7 @@ function askForName() {
 function paintGreeting(text) {
     form.classList.remove(SHOWING_CN); // 이름을 입력할 box를 없앤다
     greeting.classList.add(SHOWING_CN); // 이름을 출력하는 태그를 보이게한다.
-    greeting.innerText = `Hello ${text}`;
+    greeting.innerText = `Hello, ${text}`;
 }
 
 // 2

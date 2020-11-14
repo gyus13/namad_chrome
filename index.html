@@ -4,15 +4,17 @@
         <meta name="viewport" content="width-device-width">
         <title>good</title>
         <link href="index.css" rel="stylesheet" type="text/css"/>
-
     </head>
     <body>
         <div class="js-clock">
-            <h1>00:00</h1>
+            <h1 class="clock">00:00</h1>
         </div>
 
-        <form class="js-form form">
-            <input type ="text" placeholder="What's your name?">
+        <form class="js-form form form css-form">
+            <input type ="text" name="name" autocomplete = "off" > 
+            <label for="name" class="label-name"> <!-- input의 이름을 설정-->
+                <span class="content-name">Name</span>
+            </label>
         </form>
         
         <h4 class="js-greetings greetings">dd</h4>
@@ -24,7 +26,6 @@
         <ul class="js-toDoList">      
         </ul>
 
-        
         <script src="clock.js"></script>
         <script src="greeting.js"></script>
         <script src="todo.js"></script>

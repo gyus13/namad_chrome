@@ -1,6 +1,11 @@
 body{
-    background-color:white;
-}
+    display : flex; /*부모의 구성요소에 flex설정하면 자식에게 플렉스 설정*/
+    justify-content : space-around; /* 플렉스 요소의 수평방향 정렬방식 설정  앞뒤 요소 사이에서 여유공간을 두고 배치*/
+    align-items : center; /* 플렉스 수직 중앙정렬 */
+    flex-direction : column; /* 위아래로 요소를 배치하기 */
+    font-family : sans-serif;
+    color : white;
+  }
 
 #title {
     color:balck;
@@ -8,7 +13,69 @@ body{
 
 .form,
  .greetings {
-    display:none;
+   font-size : 30px;
+   display : none;
+}
+
+.css-form {
+  width : 50%;
+  position : relative; /*각각의 방향을 기준으로 태그 안쪽으로 이동 */
+  height : 50px;
+  overflow : hidden;
+}
+
+.css-form input {
+  width : 100%;
+  height : 100%;
+  color : white;
+  font-size : 30px;
+  padding-top : 20px;
+  border : none;
+  background : transparent;
+}
+
+.css-form label {
+  position : absolute;
+  bottom : 0px;
+  left : 0%;
+  width : 100%;
+  height : 100%;
+  pointer-events : none;
+  border-bottom : 1px solid black;
+}
+
+.css-form label::after {
+  content : "";
+  position : absolute;
+  left : 0px;
+  bottom : -1px;
+  height : 100%;
+  width : 100%;
+  border-bottom : 3px solid #5fa8d3;
+  transform : translateX(-100%);
+  transition : transform 0.3s ease;
+}
+
+.css-form input:focus + .label-name .content-name {
+  transform : translateY(-150%);
+  font-size : 14px;
+  color: #5fa8d3;
+}
+
+.css-form input:focus + .label-name::after {
+  transform : translateX(0%);
+}
+
+.content-name {
+  position : absolute;
+  bottom : 5px;
+  left : 0px;
+  transition : all 0.3s ease;
+}
+
+.clock {
+  font-size : 100px; 
+  color : white;
 }
 
 .showing {

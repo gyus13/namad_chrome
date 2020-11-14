@@ -2,6 +2,8 @@ const body = document.querySelector("body");
 
 const IMG_NUMBER = 3;
 
+
+// 2. paintImage
 function paintImage(imgNumber) {
   const image = new Image();
   image.src = `images/${imgNumber + 1}.jpg`;
@@ -9,6 +11,7 @@ function paintImage(imgNumber) {
   body.prepend(image);
 }
 
+// 1. genrandom()
 function genRandom() {
   const number = Math.floor(Math.random() * IMG_NUMBER);
   return number;
